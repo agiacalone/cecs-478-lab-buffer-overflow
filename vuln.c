@@ -1,23 +1,47 @@
-//vuln.c
-#include <stdio.h> 
+#include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
 
-int main(int argc, char **argv) {     
-	// Make some stack information     
-	char a[100], b[100], c[100], d[100];     
-	// Call the exploitable function     
-	exploitable(argv[1]);     
-	// Return: everything is OK     
-	return(0); 
+/* Changing this size will change the layout of the stack. */
+#ifndef BUF_SIZE
+#define BUF_SIZE 100
+#endif
+
+void dummy_function(char *str);
+
+int bof(char *str)
+{
+    char buffer[BUF_SIZE];
+
+    // The following statement has a buffer overflow problem 
+    strcpy(buffer, str);       
+
+    return 1;
 }
 
-int exploitable(char *arg) {  
-	// Make some stack space
-	char buffer[10];  
-	// Now copy the buffer  
-	strcpy(buffer, arg);  
-	printf("The buffer says .. [%s/%p].\n", buffer, &buffer);  
-	// Return: everything fun  
-	return(0); 
+int main(int argc, char **argv)
+{
+    char str[517];
+    FILE *badfile;
+
+    badfile = fopen("badfile", "r"); 
+    if (!badfile) {
+       perror("Opening badfile"); exit(1);
+    }
+
+    int length = fread(str, sizeof(char), 517, badfile);
+    printf("Input size: %d\n", length);
+    dummy_function(str);
+    fprintf(stdout, "==== Returned Properly ====\n");
+    return 1;
 }
 
+// This function is used to insert a stack frame of size 
+// 1000 (approximately) between main's and bof's stack frames. 
+// The function itself does not do anything. 
+void dummy_function(char *str)
+{
+    char dummy_buffer[1000];
+    memset(dummy_buffer, 0, 1000);
+    bof(str);
+}

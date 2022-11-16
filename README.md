@@ -8,31 +8,6 @@ This assignment focuses on buffer overflow attacks and how they can be carried o
 
 Given the following C code file, perform a stack smash on the [vuln.c](vuln.c) code file using a C program that you create named `exploit.c`. Your program should attempt to open up a reverse shell on the attacked program as root by exploiting the buffer (you can verify this by typing the command `whoami` on the resulting terminal). The [vuln.c](vuln.c) code must be compiled in its own, separate program and must not be altered from its original state.
 
-``` c
-//vuln.c
-#include <stdio.h> 
-#include <string.h>
-
-int main(int argc, char **argv) {     
-  // Make some stack information     
-  char a[100], b[100], c[100], d[100];     
-  // Call the exploitable function     
-  exploitable(argv[1]);     
-  // Return: everything is OK     
-  return(0); 
-}
-
-int exploitable(char *arg) {  
-  // Make some stack space
-  char buffer[10];  
-  // Now copy the buffer  
-  strcpy(buffer, arg);  
-  printf("The buffer says .. [%s/%p].\n", buffer, &buffer);  
-  // Return: everything fun  
-  return(0); 
-}
-```
-
 Note: when running many versions of Linux, you may need to [disable some address randomization](http://gcc.gnu.org/wiki/Randomization).
 
 ## Deliverables
