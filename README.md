@@ -2,7 +2,7 @@
 
 ## Assignment Description
 
-This assignment focuses on buffer overflow attacks and how they can be carried out on poorly-programmed system programs. You may not be able to complete this assignment on a modern operating system, as there are canaries built-in to modern shells (and kernels) to prevent such a thing from occurring. I would recommend using an older Linux distribution in a virtual machine for this assignment (something prior to Linux kernel version 2.4), but you are welcome to attempt this on a modern OS and see if you can get it to work. Review the article [Smashing the Stack for Fun and Profit](http://phrack.org/issues/49/14.html) for a very good, detailed introduction on how to perform a stack smashing attack.
+This assignment focuses on buffer overflow attacks and how they can be carried out on poorly-programmed system programs. You may not be able to complete this assignment on a modern operating system, as modern compilers build canaries into code in order to prevent such a thing from occurring. I would recommend using an older Linux distribution in a virtual machine for this assignment (something prior to Linux kernel version 2.4), but you are welcome to attempt this on a modern OS and see if you can get it to work. Review the article [Smashing the Stack for Fun and Profit](http://phrack.org/issues/49/14.html) for a very good, detailed introduction on how to perform a stack smashing attack.
 
 ## Assignment
 
