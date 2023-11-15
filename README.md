@@ -18,7 +18,7 @@ Submit your `exploit.c` to Github Classroom along with a writeup (written in Mar
 
 * Your writeup *must* be done in Markdown format and must be included in the repository as a separate file. View the file `README.md` for an example of Markdown.
 * Screenshots should be done in `*.jpg`, `*.png`, or `*.gif` formats, and be included individually as files in your repository (i.e. no binary ‘document’ with the images pasted inside). Screenshots which are too zoomed-in, which do not show your desktop, or are otherwise unidentifiable as belonging to you will not be counted.
-* Screenshots *may* be linked in your Markdown document if you wish to do so.
+* Screenshots *may* be linked in your Markdown file writeup if you wish to do so.
 
 Your submission must follow the following rules, else *I will not grade it and you will receive a zero for the submission*:
 
