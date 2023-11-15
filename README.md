@@ -12,7 +12,11 @@ Note: when running many versions of Linux, you may need to [disable some address
 
 ## Deliverables
 
-Submit your `exploit.c` to Github Classroom along with a writeup (written in Markdown) of how you attempted the stack smashing attack and screenshots of the output or result of a successful attack. If you are not able to succeed with the attack due to OS constraints, detail that in your writeup and explain how you would go about performing such an attack on this system (along with your C code).
+Submit your `exploit.c` to your git repository along with:
+
+* A writeup (written in Markdown) of how you attempted the stack smashing attack.
+* At least one screenshot of the output or result of a successful attack.
+        * If you are not able to succeed with the attack due to OS constraints, detail that in your writeup and explain how you would go about performing such an attack on this system (along with your C code).
 
 ### Please note:
 
